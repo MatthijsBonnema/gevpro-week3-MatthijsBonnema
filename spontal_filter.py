@@ -12,17 +12,16 @@ def main():
     root = tree.getroot()
 
     for child in root:
-        BOTTOM_HZ = (child.find('BOTTOM_HZ').text)
-        TOP_HZ = (child.find('TOP_HZ').text)
-        F0_START = (child.find('F0_START').text)
-        F0_END = (child.find('F0_END').text)
+        BOTTOM_HZ = int(child.find('BOTTOM_HZ').text)
+        TOP_HZ = int(child.find('TOP_HZ').text)
+        F0_START = float(child.find('F0_START').text)
+        F0_END = float(child.find('F0_END').text)
+
 
         if BOTTOM_HZ <= F0_START <= TOP_HZ and BOTTOM_HZ <= F0_END <= TOP_HZ:
             continue
         else:
-            print("removed")
             root.remove(child)
-
 
     tree.write('filtered_spontal.xml')
 
