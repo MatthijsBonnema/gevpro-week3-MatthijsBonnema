@@ -2,7 +2,7 @@
 # File: language.py.py
 # Author: Matthijs Bonnema
 # Date: 2/24/15
-# Info: 
+# Info:
 
 import sys
 import json
