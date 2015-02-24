@@ -7,8 +7,11 @@
 import sys
 import xml.etree.ElementTree as ET
 
-def main():
-    tree = ET.parse('spontal.xml')
+def main(argv):
+    file = argv[1]
+    output = argv[2]
+
+    tree = ET.parse(file)
     root = tree.getroot()
 
     for child in root:
@@ -23,8 +26,8 @@ def main():
         else:
             root.remove(child)
 
-    tree.write('filtered_spontal.xml')
+    tree.write(output)
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)
